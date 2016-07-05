@@ -1,0 +1,38 @@
+{
+    "name": "enflow/component-inflector",
+    "description": "Multilingual inflector that can singularize and pluralize words.",
+    "homepage": "https://github.com/enflow-nl/component-inflector",
+    "keywords": [
+        "enflow",
+        "inflector",
+        "singularize",
+        "pluralize",
+        "multilingual"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michel Bardelmeijer",
+            "email": "michel@enflow.nl"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Enflow\\Component\\Inflector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Enflow\\Component\\Inflector\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}

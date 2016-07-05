@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Dutch inflections
+ *
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @author Noud deBROUWER <noud4@home.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @repository https://github.com/noud/cakephp-dutch
+ */
+
 namespace Enflow\Component\Inflector\Inflections;
 
 use Enflow\Component\Inflector\Inflection;

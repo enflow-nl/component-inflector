@@ -53,7 +53,7 @@ If you discover any security related issues, please email michel@enflow.nl inste
 Special thanks to [Freek Van der Herten](https://github.com/freekmurze) for providing the package template & multiple useful packages.
 
 ## About Enflow
-Enflow is a web agency based in Alphen aan den Rijn, Netherlands. We specialize in developing webapplications, mobile applications and websites. You can find more info [on our website](https://enflow.nl/en).
+Enflow is a web agency based in Alphen aan den Rijn, Netherlands. We specialize in developing web applications, mobile applications and websites. You can find more info [on our website](https://enflow.nl/en).
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

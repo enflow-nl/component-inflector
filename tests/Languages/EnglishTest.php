@@ -2,7 +2,6 @@
 
 namespace Enflow\Component\Inflector\Test\Inflections;
 
-use Enflow\Component\Inflector\Inflections\English;
 use Enflow\Component\Inflector\Inflector;
 use Enflow\Component\Inflector\Test\AbstractInflectionTest;
 
@@ -10,7 +9,7 @@ final class EnglishTest extends AbstractInflectionTest
 {
     public function setUp()
     {
-        $this->inflector = new Inflector(new English());
+        $this->inflector = Inflector::forLanguageCode('en');
     }
 
     /**

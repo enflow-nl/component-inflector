@@ -13,11 +13,11 @@
  * @repository https://github.com/noud/cakephp-dutch
  */
 
-namespace Enflow\Component\Inflector\Inflections;
+namespace Enflow\Component\Inflector\Language;
 
-use Enflow\Component\Inflector\Inflection;
+use Enflow\Component\Inflector\Language;
 
-class Dutch extends Inflection
+class Dutch extends Language
 {
     /**
      * http://nl.wikipedia.org/wiki/Klinker_%28klank%29
@@ -60,7 +60,7 @@ class Dutch extends Inflection
     public function plural(): array
     {
         return [
-            // allready in plural
+            // already in plural
             '/()ijen$/i'                                                              => '\1ijen',
             '/()ieën$/i'                                                              => '\1ieën',
             '/()(' . $this->klinker . ')s$/i'                                         => '\1\2s',
@@ -158,11 +158,11 @@ class Dutch extends Inflection
             'gedrag'           => 'gedragingen',
             'genot'            => 'genietingen',
             'lof'              => 'lofbetuigingen',
-            'schema_migration' => 'schema_migrations',
             // http://nl.wikipedia.org/wiki/Meervoud_(Nederlands)#Latijnse_meervoudsvormen
             'qaestrices'       => 'quaestrix',
             'matrices'         => 'matrix',
             'categorie'        => 'categorieën',
+            'baby'             => 'babies',
         ];
     }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enflow\Component\Inflector\Inflections;
+namespace Enflow\Component\Inflector\Language;
 
-use Enflow\Component\Inflector\Inflection;
+use Enflow\Component\Inflector\Language;
 
-class English extends Inflection
+class English extends Language
 {
     /**
      * @return array
@@ -45,7 +45,7 @@ class English extends Inflection
             '/(n)ews$/i' => '\1\2ews',
             '/eaus$/' => 'eau',
             '/^(.*us)$/' => '\\1',
-            '/s$/i' => ''
+            '/s$/i' => '',
         ];
     }
 
@@ -91,7 +91,7 @@ class English extends Inflection
             '.*pox', '.*sheep', 'people', 'feedback', 'stadia', '.*?media',
             'chassis', 'clippers', 'debris', 'diabetes', 'equipment', 'gallows',
             'graffiti', 'headquarters', 'information', 'innings', 'news', 'nexus',
-            'proceedings', 'research', 'sea[- ]bass', 'series', 'species', 'weather'
+            'proceedings', 'research', 'sea[- ]bass', 'series', 'species', 'weather',
         ];
     }
 
@@ -141,7 +141,7 @@ class English extends Inflection
             'goose' => 'geese',
             'foot' => 'feet',
             'foe' => 'foes',
-            'sieve' => 'sieves'
+            'sieve' => 'sieves',
         ];
     }
 }

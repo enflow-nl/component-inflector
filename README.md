@@ -7,9 +7,9 @@
 
 The `enflow/component-inflector` package provides a easy way to singularize and pluralize words in multiple languages.   
    
-The following languages are (currently) supported:
-- English
-- Dutch
+The following languages are currently supported. Pull requests are welcome!
+- English (en)
+- Dutch (nl)
   
 Component is based on [`cakephp/utility`](https://github.com/cakephp/utility) and [`noud/cakephp-dutch`](https://github.com/noud/cakephp-dutch).
 
@@ -22,17 +22,19 @@ composer require enflow/component-inflector
 
 ## Usage
 ``` php
-$inflector = new \Enflow\Component\Inflector\Inflector();
+use Enflow\Component\Inflector\Inflector;
+
+$inflector = Inflector::forLanguageCode('en');
 
 echo $inflector->singularize('apples') // Outputs: apple
 echo $inflector->pluralize('apple') // Outputs: apples
 ```
-Or specify a custom inflection (language), Dutch for instance:
-``` php
-$inflector = new \Enflow\Component\Inflector\Inflector(new \Enflow\Component\Inflector\Inflections\Dutch());
 
-echo $inflector->singularize('appels') // Outputs: appel
-echo $inflector->pluralize('appel') // Outputs: appels
+Or specify a custom language which extends the abstract `Language` class:
+``` php
+use Enflow\Component\Inflector\Inflector;
+
+$inflector = new Inflector::forLanguage(new YourLanguageClass());
 ``` 
 
 ## Testing
@@ -53,7 +55,7 @@ If you discover any security related issues, please email michel@enflow.nl inste
 Special thanks to [Freek Van der Herten](https://github.com/freekmurze) for providing the package template & multiple useful packages.
 
 ## About Enflow
-Enflow is a web agency based in Alphen aan den Rijn, Netherlands. We specialize in developing web applications, mobile applications and websites. You can find more info [on our website](https://enflow.nl/en).
+Enflow is a digital creative agency based in Alphen aan den Rijn, Netherlands. We specialize in developing web applications, mobile applications and websites. You can find more info [on our website](https://enflow.nl/en).
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

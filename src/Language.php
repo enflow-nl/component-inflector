@@ -2,7 +2,7 @@
 
 namespace Enflow\Component\Inflector;
 
-abstract class Inflection
+abstract class Language
 {
     /**
      * @return array

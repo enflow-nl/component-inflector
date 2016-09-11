@@ -16,23 +16,27 @@
 
 namespace Enflow\Component\Inflector;
 
-final class Inflector
+class Inflector
 {
     /**
-     * @var Inflection
+     * @var Language
      */
-    private $inflection;
+    private $language;
 
     /**
-     * @param Inflection|null $inflection
+     * @var array
      */
-    public function __construct(Inflection $inflection = null)
-    {
-        if ($inflection === null) {
-            $inflection = new Inflections\English();
-        }
+    private static $languages = [
+        'en' => Language\English::class,
+        'nl' => Language\Dutch::class,
+    ];
 
-        $this->inflection = $inflection;
+    /**
+     * @param Language $language
+     */
+    private function __construct(Language $language)
+    {
+        $this->language = $language;
     }
 
     /**
@@ -43,17 +47,17 @@ final class Inflector
      */
     public function pluralize(string $word): string
     {
-        $pluralize = '(?:' . implode('|', array_keys($this->inflection->irregular())) . ')';
+        $pluralize = '(?:' . implode('|', array_keys($this->language->irregular())) . ')';
 
         if (preg_match('/(.*?(?:\\b|_))(' . $pluralize . ')$/i', $word, $regs)) {
-            return $regs[1] . substr($regs[2], 0, 1) . substr($this->inflection->irregular()[strtolower($regs[2])], 1);
+            return $regs[1] . substr($regs[2], 0, 1) . substr($this->language->irregular()[strtolower($regs[2])], 1);
         }
 
         if (preg_match($this->getUninflectedRegex(), $word, $regs)) {
             return $word;
         }
 
-        foreach ($this->inflection->plural() as $rule => $replacement) {
+        foreach ($this->language->plural() as $rule => $replacement) {
             if (preg_match($rule, $word)) {
                 return preg_replace($rule, $replacement, $word);
             }
@@ -71,18 +75,17 @@ final class Inflector
      */
     public function singularize(string $word): string
     {
-        $singular = '(?:' . implode('|', $this->inflection->irregular()) . ')';
+        $singular = '(?:' . implode('|', $this->language->irregular()) . ')';
 
         if (preg_match('/(.*?(?:\\b|_))(' . $singular . ')$/i', $word, $regs)) {
-            return $regs[1] . substr($regs[2], 0, 1) . substr(array_search(strtolower($regs[2]),
-                $this->inflection->irregular()), 1);
+            return $regs[1] . substr($regs[2], 0, 1) . substr(array_search(strtolower($regs[2]), $this->language->irregular()), 1);
         }
 
         if (preg_match($this->getUninflectedRegex(), $word, $regs)) {
             return $word;
         }
 
-        foreach ($this->inflection->singular() as $rule => $replacement) {
+        foreach ($this->language->singular() as $rule => $replacement) {
             if (preg_match($rule, $word)) {
                 return preg_replace($rule, $replacement, $word);
             }
@@ -97,6 +100,28 @@ final class Inflector
      */
     private function getUninflectedRegex(): string
     {
-        return '/^((?:' . implode('|', $this->inflection->uninflected()) . '))$/i';
+        return '/^((?:' . implode('|', $this->language->uninflected()) . '))$/i';
+    }
+
+    /**
+     * @param Language $language
+     * @return static
+     */
+    public static function forLanguage(Language $language): self
+    {
+        return new static($language);
+    }
+
+    /**
+     * @param string $languageCode ISO-639-1 language code
+     * @return static
+     */
+    public static function forLanguageCode(string $languageCode): self
+    {
+        if (!array_key_exists($languageCode, static::$languages)) {
+            throw new \InvalidArgumentException("Language code '{$languageCode}' does not have a registered language to use in inflections.");
+        }
+
+        return static::forLanguage(new static::$languages[$languageCode]);
     }
 }

@@ -10,7 +10,7 @@ final class DutchTest extends AbstractInflectionTest
 {
     public function setUp()
     {
-        $this->inflector = new Inflector(new Dutch());
+        $this->inflector = Inflector::forLanguageCode('nl');
     }
 
     /**
@@ -28,6 +28,8 @@ final class DutchTest extends AbstractInflectionTest
             ['product', 'producten'],
             ['nieuwsbericht', 'nieuwsberichten'],
             ['agendapunt', 'agendapunten'],
+            ['baby', 'babies'],
+            ['geluid', 'geluiden'],
         ];
     }
 }

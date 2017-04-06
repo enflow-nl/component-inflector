@@ -2,21 +2,17 @@
 
 namespace Enflow\Component\Inflector\Test\Inflections;
 
-use Enflow\Component\Inflector\Inflections\Dutch;
 use Enflow\Component\Inflector\Inflector;
 use Enflow\Component\Inflector\Test\AbstractInflectionTest;
 
-final class DutchTest extends AbstractInflectionTest
+class DutchTest extends AbstractInflectionTest
 {
     public function setUp()
     {
         $this->inflector = Inflector::forLanguageCode('nl');
     }
 
-    /**
-     * @return array
-     */
-    public static function testCases(): array
+    public static function words(): array
     {
         return [
             ['appel', 'appels'],
@@ -30,6 +26,7 @@ final class DutchTest extends AbstractInflectionTest
             ['agendapunt', 'agendapunten'],
             ['baby', 'babies'],
             ['geluid', 'geluiden'],
+            ['vakantie', 'vakanties'],
         ];
     }
 }

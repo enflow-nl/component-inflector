@@ -2,17 +2,17 @@
 
 namespace Enflow\Component\Inflector\Test;
 
-use Enflow\Component\Inflector\Inflector;
+use PHPUnit\Framework\TestCase;
 
-abstract class AbstractInflectionTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractInflectionTest extends TestCase
 {
     /**
-     * @var Inflector
+     * @var \Enflow\Component\Inflector\Inflector
      */
     protected $inflector;
 
     /**
-     * @dataProvider testCases
+     * @dataProvider words
      */
     public function test_pluralize(string $singularized, string $pluralized)
     {
@@ -20,7 +20,7 @@ abstract class AbstractInflectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testCases
+     * @dataProvider words
      */
     public function test_singularize(string $singularized, string $pluralized)
     {

@@ -5,17 +5,14 @@ namespace Enflow\Component\Inflector\Test\Inflections;
 use Enflow\Component\Inflector\Inflector;
 use Enflow\Component\Inflector\Test\AbstractInflectionTest;
 
-final class EnglishTest extends AbstractInflectionTest
+class EnglishTest extends AbstractInflectionTest
 {
     public function setUp()
     {
         $this->inflector = Inflector::forLanguageCode('en');
     }
 
-    /**
-     * @return array
-     */
-    public static function testCases(): array
+    public static function words(): array
     {
         return [
             ['access', 'accesses'],

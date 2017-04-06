@@ -4,11 +4,12 @@ namespace Enflow\Component\Inflector\Test;
 
 use Enflow\Component\Inflector\Inflector;
 use Enflow\Component\Inflector\Language\Dutch;
+use PHPUnit\Framework\TestCase;
 
-final class InflectorTest extends \PHPUnit_Framework_TestCase
+class InflectorTest extends TestCase
 {
     /**
-     * @var Inflector
+     * @var \Enflow\Component\Inflector\Inflector
      */
     private $inflector;
 
@@ -46,6 +47,6 @@ final class InflectorTest extends \PHPUnit_Framework_TestCase
 
     public function test_that_for_language_method_works()
     {
-        Inflector::forLanguage(new Dutch());
+        $this->assertInstanceOf(Inflector::class, Inflector::forLanguage(new Dutch()));
     }
 }

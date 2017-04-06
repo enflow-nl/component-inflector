@@ -34,7 +34,7 @@ Or specify a custom language which extends the abstract `Language` class:
 ``` php
 use Enflow\Component\Inflector\Inflector;
 
-$inflector = new Inflector::forLanguage(new YourLanguageClass());
+$inflector = Inflector::forLanguage(new YourLanguageClass());
 ``` 
 
 ## Testing

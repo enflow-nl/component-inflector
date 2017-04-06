@@ -18,33 +18,18 @@ namespace Enflow\Component\Inflector;
 
 class Inflector
 {
-    /**
-     * @var Language
-     */
     private $language;
 
-    /**
-     * @var array
-     */
     private static $languages = [
         'en' => Language\English::class,
         'nl' => Language\Dutch::class,
     ];
 
-    /**
-     * @param Language $language
-     */
     private function __construct(Language $language)
     {
         $this->language = $language;
     }
 
-    /**
-     * Return $word in plural form.
-     *
-     * @param string $word Word in singular
-     * @return string Word in plural
-     */
     public function pluralize(string $word): string
     {
         $pluralize = '(?:' . implode('|', array_keys($this->language->irregular())) . ')';
@@ -63,16 +48,9 @@ class Inflector
             }
         }
 
-        // Return original
         return $word;
     }
 
-    /**
-     * Return $word in singular form.
-     *
-     * @param string $word Word in plural
-     * @return string Word in singular
-     */
     public function singularize(string $word): string
     {
         $singular = '(?:' . implode('|', $this->language->irregular()) . ')';
@@ -91,31 +69,19 @@ class Inflector
             }
         }
 
-        // Return original
         return $word;
     }
 
-    /**
-     * @return string
-     */
     private function getUninflectedRegex(): string
     {
         return '/^((?:' . implode('|', $this->language->uninflected()) . '))$/i';
     }
 
-    /**
-     * @param Language $language
-     * @return static
-     */
     public static function forLanguage(Language $language): self
     {
         return new static($language);
     }
 
-    /**
-     * @param string $languageCode ISO-639-1 language code
-     * @return static
-     */
     public static function forLanguageCode(string $languageCode): self
     {
         if (!array_key_exists($languageCode, static::$languages)) {

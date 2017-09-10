@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/enflow/component-inflector.svg?style=flat-square)](https://packagist.org/packages/enflow/component-inflector)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/enflow-nl/component-inflector/master.svg?style=flat-square)](https://travis-ci.org/spatie/component-inflector)
+[![Build Status](https://img.shields.io/travis/enflow-nl/component-inflector/master.svg?style=flat-square)](https://travis-ci.org/enflow-nl/component-inflector)
 [![Total Downloads](https://img.shields.io/packagist/dt/enflow/component-inflector.svg?style=flat-square)](https://packagist.org/packages/enflow/component-inflector)
 
 The `enflow/component-inflector` package provides a easy way to singularize and pluralize words in multiple languages.   

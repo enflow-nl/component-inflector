@@ -27,6 +27,7 @@ class DutchTest extends AbstractInflectionTest
             ['baby', 'babies'],
             ['geluid', 'geluiden'],
             ['vakantie', 'vakanties'],
+            ['cursus', 'cursussen'],
         ];
     }
 }

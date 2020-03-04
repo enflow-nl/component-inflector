@@ -163,6 +163,7 @@ class Dutch extends Language
             'matrices' => 'matrix',
             'categorie' => 'categorieën',
             'baby' => 'babies',
+            'cursus' => 'cursussen',
         ];
     }
 

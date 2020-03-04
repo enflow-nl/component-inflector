@@ -13,7 +13,7 @@ class InflectorTest extends TestCase
      */
     private $inflector;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->inflector = Inflector::forLanguageCode('en');
     }

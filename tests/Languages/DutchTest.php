@@ -7,7 +7,7 @@ use Enflow\Component\Inflector\Test\AbstractInflectionTest;
 
 class DutchTest extends AbstractInflectionTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->inflector = Inflector::forLanguageCode('nl');
     }
